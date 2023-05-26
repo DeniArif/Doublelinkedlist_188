@@ -143,4 +143,9 @@ void DoubleLinkedList::searchData() {
 	}
 	Node* prev, * curr;
 	prev = curr = NULL;
+	cout << "\nEnter the roll number of the student whose record you want  search: ";
+	int num;
+	cin >> num;
+	if (DoubleLinkedList::search(num, &prev, &curr) == false)
+		cout << "\nRecord not found " << endl;
 }
