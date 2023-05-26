@@ -16,13 +16,13 @@ private:
 public:
 	DoubleLinkedList();
 	void addNode();
-	bool search(int rollic, Node** previous, Node** current);
+	bool search(int rollNo, Node** previous, Node** current);
 	bool deletedNode(int rollNo);
 	bool listEmpty();
 	void traverse();
 	void revtraverse();
 	void hapus();
-	void searhData();
+	void searchData();
 };
 
 DoubleLinkedList::DoubleLinkedList() {
@@ -133,7 +133,14 @@ void DoubleLinkedList::hapus() {
 	if (DoubleLinkedList::deletedNode(rollNo) == false)
 		cout << "Record not found " << endl;
 	else
-		cout << "Record"
+		cout << "Record with roll number " << rollNo << " deleted " << endl;
+}
 
+void DoubleLinkedList::searchData() {
+	if (listEmpty() == true) {
+		cout << "\nList is empty " << endl;
 
+	}
+	Node* prev, * curr;
+	prev = curr = NULL;
 }
