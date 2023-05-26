@@ -120,3 +120,12 @@ void DoubleLinkedList::traverse() {
 		}
 	}
 }
+
+void DoubleLinkedList::hapus() {
+	if (listEmpty()) {
+		cout << "\nList is Empty " << endl;
+	
+	}
+	cout << "\nEnter the roll number the student whose record is to be deleted: ";
+	int rollNo;
+}
