@@ -2,12 +2,14 @@
 #include <string>
 using namespace std;
 
-class Node {
+class Node
+{
 public:
 	int noMhs;
 	string name;
 	Node* next;
 	Node* prev;
+
 };
 
 class DoubleLinkedList {
@@ -75,17 +77,17 @@ void DoubleLinkedList::addNode() {
 	current->next = newNode;//step 7
 }
 
-bool DoubleLinkedList::search(int rolleNo, Node** previous, Node** current) {
+bool DoubleLinkedList::search(int rollNo, Node** previous, Node** current) {
 	*previous = START; // step 1.a
 	*current = START; //step 1.b
-	while (*current != NULL && rolleNo != (*current)->noMhs) { //step 1.c
+	while (*current != NULL && rollNo != (*current)->noMhs) { //step 1.c
 		*previous = *current; //step 1.d
 		*current = (*current)->next;//step.e
 	}
 	return (*current != NULL);
 }
 
-bool DoubleLinkedList::deletedNode(int rollNo){
+bool DoubleLinkedList::deletedNode(int rollNo) {
 	Node* previous, * current;
 	previous = current = NULL;
 	if (search(rollNo, &previous, &current) == false)
@@ -121,10 +123,29 @@ void DoubleLinkedList::traverse() {
 	}
 }
 
+void DoubleLinkedList::revtraverse() {
+	if (listEmpty()) {
+		cout << "\nList is empty" << endl;
+	}
+	else {
+
+		cout << "\nRecords in descending order of roll number are:" << endl;
+
+		Node* currentNode = START;
+
+		while (currentNode->next != NULL) currentNode = currentNode->next;
+
+		while (currentNode != NULL) {
+
+			cout << currentNode->noMhs << " " << currentNode->name << endl; currentNode = currentNode->prev;
+		}
+	}
+}
+
 void DoubleLinkedList::hapus() {
 	if (listEmpty()) {
 		cout << "\nList is Empty " << endl;
-	
+
 	}
 	cout << "\nEnter the roll number the student whose record is to be deleted: ";
 	int rollNo;
