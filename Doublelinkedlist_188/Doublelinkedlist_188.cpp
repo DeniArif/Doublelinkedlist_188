@@ -108,5 +108,15 @@ bool DoubleLinkedList::listEmpty() {
 void DoubleLinkedList::traverse() {
 	if (listEmpty())
 		cout << "\nList is Empty" << endl;
-	else
+	else {
+		cout << "\nRecords in descending order of roll number are: " << endl;
+		Node* currentNode = START;
+		while (currentNode->next != NULL)
+			currentNode = currentNode->next;
+
+		while (currentNode != NULL) {
+			cout << currentNode->noMhs << " " << currentNode->name << endl;
+			currentNode = currentNode->prev;
+		}
+	}
 }
